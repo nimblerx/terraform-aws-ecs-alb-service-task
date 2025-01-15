@@ -41,7 +41,7 @@ related:
   - name: terraform-aws-lb-s3-bucket
     description: Terraform module to provision an S3 bucket with built in IAM policy to allow AWS Load Balancers to ship access logs.
     url: https://github.com/cloudposse/terraform-aws-lb-s3-bucket
-description: Terraform module to create an ECS Service for a web app (task), and an ALB target group to route requests.
+description: Terraform module to create an ECS Service for a web app (task), and an ALB target group to route requests.  NimbleRX forked due to needing variable skip_destroy to prevent Error aws_ecs_task_definition ClientException: Too many concurrent attempts to create a new revision of the specified family https://github.com/cloudposse/terraform-aws-ecs-alb-service-task/issues/258
 usage: |2-
 
   For a complete example, see [examples/complete](examples/complete).

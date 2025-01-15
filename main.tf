@@ -67,6 +67,7 @@ resource "aws_ecs_task_definition" "default" {
   ipc_mode                 = var.ipc_mode
   pid_mode                 = var.pid_mode
   execution_role_arn       = length(local.task_exec_role_arn) > 0 ? local.task_exec_role_arn : one(aws_iam_role.ecs_exec[*]["arn"])
+  skip_destroy             = var.skip_destroy
   task_role_arn            = length(local.task_role_arn) > 0 ? local.task_role_arn : one(aws_iam_role.ecs_task[*]["arn"])
   track_latest             = var.track_latest
 

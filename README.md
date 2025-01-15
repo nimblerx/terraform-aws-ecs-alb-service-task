@@ -29,6 +29,12 @@
 
 Terraform module to create an ECS Service for a web app (task), and an ALB target group to route requests.
 
+#### NimbleRX forked due to needing variable skip_destroy to prevent Error
+```
+aws_ecs_task_definition ClientException: Too many concurrent attempts to create a new revision of the specified family
+```
+https://github.com/cloudposse/terraform-aws-ecs-alb-service-task/issues/258
+
 
 > [!TIP]
 > #### 👽 Use Atmos with Terraform

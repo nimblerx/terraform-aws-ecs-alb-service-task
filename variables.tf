@@ -599,3 +599,9 @@ variable "track_latest" {
   description = "Whether should track latest task definition or the one created with the resource."
   default     = false
 }
+
+variable "skip_destroy" {
+  type        = bool
+  description = "Whether to retain the old revision when the resource is destroyed or replacement is necessary."
+  default     = false
+}
