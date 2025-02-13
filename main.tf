@@ -876,7 +876,8 @@ resource "aws_ecs_service" "default" {
   platform_version                   = var.launch_type == "FARGATE" ? var.platform_version : null
   scheduling_strategy                = var.launch_type == "FARGATE" ? "REPLICA" : var.scheduling_strategy
   enable_ecs_managed_tags            = var.enable_ecs_managed_tags
-  iam_role                           = local.enable_ecs_service_role ? coalesce(var.service_role_arn, one(aws_iam_role.ecs_service[*]["arn"])) : null
+  #Commented out to prevent: Error: creating ECS Service (infra-logstash): operation error ECS: CreateService, https response error StatusCode: 400, RequestID: 2da8493b-b96d-412c-b3fd-726d4e61cdd1, InvalidParameterException: You cannot specify an IAM role for services that require a service linked role.
+  #iam_role                           = local.enable_ecs_service_role ? coalesce(var.service_role_arn, one(aws_iam_role.ecs_service[*]["arn"])) : null
   wait_for_steady_state              = var.wait_for_steady_state
   force_new_deployment               = var.force_new_deployment
   enable_execute_command             = var.exec_enabled
